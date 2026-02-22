@@ -53,21 +53,17 @@ Dim radiusDbl: radiusDbl = 25
 ' Add circle for each via on user layer "Test"
 Dim viaObj
 For Each viaObj In viaColl
-' Create a circle points array at the via location
-Dim pntsArr
-pntsArr = pcbAppObj.Utility.CreateCircleXYR(viaObj.PositionX, _
-viaObj.PositionY, radiusDbl)
-Dim numPntsInt
-numPntsInt = UBound(pntsArr, 2) + 1
+  ' Create a circle points array at the via location
+  Dim pntsArr
+  pntsArr = pcbAppObj.Utility.CreateCircleXYR(viaObj.PositionX, viaObj.PositionY, radiusDbl)
+  Dim numPntsInt
+  numPntsInt = UBound(pntsArr, 2) + 1
 
-' Add the graphics to the user layer
-Call pcbDocObj.PutUserLayerGfx(userLayerObj, widthReal, _
-numPntsInt, pntsArr, filledBool, _
-cmpObj, epcbUnitCurrent)
+  ' Add the graphics to the user layer
+  Call pcbDocObj.PutUserLayerGfx(userLayerObj, widthReal, numPntsInt, pntsArr, filledBool, cmpObj, epcbUnitCurrent)
 Next
 
-Call pcbAppObj.Gui.StatusBarText("Added " & viaColl.Count & _
-" via caps on user layer ""Test""", epcbStatusField1)
+Call pcbAppObj.Gui.StatusBarText("Added " & viaColl.Count & " via caps on user layer ""Test""", epcbStatusField1)
 
 pcbDocObj.TransactionEnd
 
