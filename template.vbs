@@ -14,15 +14,8 @@ Set pcbDocObj = pcbAppObj.ActiveDocument
 ' License the document
 ValidateServer(pcbDocObj)
 
-' Get the vias collection
-Dim viaColl
-Set viaColl = pcbDocObj.Vias
+' ### Your Code Will Go Here!
 
-' Get the number of vias in collection
-Dim countInt
-countInt = viaColl.Count
-
-MsgBox("There are " & countInt & " vias.")
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 'Local functions
